@@ -3,14 +3,15 @@
 namespace MyApplication
 {
 
-    class CalculateAreas
+    public static class CalculateAreas
     {
 
-        static void Main()
+        public static void Main()
         {
             const int Zero = 0;
 
             const string MsgSquare = "Introdueix la mesura d'un costat del quadrat: ";
+            const string MsgResultSquare = "L'àrea del quadrat és {0}.";
             const string MsgRectangleBase = "Introdueix la base del rectangle: ";
             const string MsgRectangleHeight = "Introdueix l'altura del rectangle: ";
             const string MsgCircleRadius = "Introdueix el radi del cercle: ";
@@ -24,6 +25,8 @@ namespace MyApplication
                 Console.WriteLine(MsgSquare);
                 squareSide = Convert.ToInt32(Console.ReadLine());
             }while (squareSide <= Zero);
+
+            Console.WriteLine(MsgResultSquare, SquareArea(squareSide));
 
             // Rectangle Values
             do
@@ -52,6 +55,11 @@ namespace MyApplication
                 pentagonSide = Convert.ToInt32(Console.ReadLine());
             } while (pentagonSide <= Zero);
 
+        }
+
+        public static int SquareArea(int squareSide)
+        {
+            return squareSide * squareSide;
         }
 
     }
