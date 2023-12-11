@@ -40,7 +40,27 @@ namespace TestProject1
 
             //Assert
             Assert.AreEqual(result, resultExpected);
-
         }
     }
+    
+    [TestClass]
+    public class UnitTestCircle
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            //Arrange
+
+            const int radius = 425;
+            const double resultExpected = 567451.5;
+
+            //Act
+
+            double result = CalculateAreas.CircleArea(radius);
+
+            //Assert
+            Assert.AreEqual(result, resultExpected);
+        }
+    }
+
 }
