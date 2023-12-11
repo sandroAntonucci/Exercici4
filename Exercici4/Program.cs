@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 
 namespace MyApplication
 {
@@ -17,9 +18,11 @@ namespace MyApplication
             const string MsgResultRectangle = "L'àrea del rectangle és {0}.";
             const string MsgCircleRadius = "Introdueix el radi del cercle: ";
             const string MsgResultCircle = "L'àrea del cercle és {0}.";
-            const string MsgPentagonSide = "Introdueix la mesura d'un costat del pentàgon: ";
+            const string MsgPentagonSide = "Introdueix la mesura del costat del pentàgon: ";
+            const string MsgPentagonApothem = "Introdueix la mesura de l'apotema del pentàgon: ";
+            const string MsgResultPentagon = "L'àrea del rectangle és {0}.";
 
-            int squareSide, rectangleBase, rectangleHeight, circleRadius, pentagonSide;
+            int squareSide, rectangleBase, rectangleHeight, circleRadius, pentagonSide, apothem;
 
             // Square
             do
@@ -45,7 +48,7 @@ namespace MyApplication
 
             Console.WriteLine(MsgResultRectangle, RectangleArea(rectangleBase, rectangleHeight));
 
-            //Circle Values
+            // Circle
             do
             {
                 Console.WriteLine(MsgCircleRadius);
@@ -54,12 +57,20 @@ namespace MyApplication
 
             Console.WriteLine(MsgResultCircle, CircleArea(circleRadius));
 
-            //Triangle Values
+            // Pentagon
             do
             {
                 Console.WriteLine(MsgPentagonSide);
                 pentagonSide = Convert.ToInt32(Console.ReadLine());
             } while (pentagonSide <= Zero);
+
+            do
+            {
+                Console.WriteLine(MsgPentagonApothem);
+                apothem = Convert.ToInt32(Console.ReadLine());
+            } while (apothem <= Zero);
+
+            Console.WriteLine(MsgResultPentagon, PentagonArea(pentagonSide, apothem));
 
         }
 
@@ -77,6 +88,11 @@ namespace MyApplication
         {
             const double Pi = 3.1416;
             return Double.Round(Pi*(circleRadius*circleRadius), 2);
+        }
+
+        public static double PentagonArea(int pentagonSide, int apothem)
+        {
+            return (5*pentagonSide*apothem)/2;
         }
 
     }
