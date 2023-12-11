@@ -14,12 +14,13 @@ namespace MyApplication
             const string MsgResultSquare = "L'àrea del quadrat és {0}.";
             const string MsgRectangleBase = "Introdueix la base del rectangle: ";
             const string MsgRectangleHeight = "Introdueix l'altura del rectangle: ";
+            const string MsgResultRectangle = "L'àrea del rectangle és {0}.";
             const string MsgCircleRadius = "Introdueix el radi del cercle: ";
             const string MsgPentagonSide = "Introdueix la mesura d'un costat del pentàgon: ";
 
             int squareSide, rectangleBase, rectangleHeight, circleRadius, pentagonSide;
 
-            // Square Values
+            // Square
             do
             {
                 Console.WriteLine(MsgSquare);
@@ -28,7 +29,7 @@ namespace MyApplication
 
             Console.WriteLine(MsgResultSquare, SquareArea(squareSide));
 
-            // Rectangle Values
+            // Rectangle 
             do
             {
                 Console.WriteLine(MsgRectangleBase);
@@ -40,6 +41,8 @@ namespace MyApplication
                 Console.WriteLine(MsgRectangleHeight);
                 rectangleHeight = Convert.ToInt32(Console.ReadLine());
             } while (rectangleHeight <= Zero);
+
+            Console.WriteLine(MsgResultRectangle, RectangleArea(rectangleBase, rectangleHeight));
 
             //Circle Values
             do
@@ -60,6 +63,12 @@ namespace MyApplication
         public static int SquareArea(int squareSide)
         {
             return squareSide * squareSide;
+        }
+
+        public static int RectangleArea(int rectangleBase, int rectangleHeight)
+        {
+
+            return rectangleBase * rectangleHeight;
         }
 
     }
