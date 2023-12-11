@@ -63,4 +63,24 @@ namespace TestProject1
         }
     }
 
+    [TestClass]
+    public class UnitTestPentagon
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            //Arrange
+
+            const int pentagonSide = 10, apothem = 4;
+            const double resultExpected = 100;
+
+            //Act
+
+            double result = CalculateAreas.PentagonArea(pentagonSide, apothem);
+
+            //Assert
+            Assert.AreEqual(result, resultExpected);
+        }
+    }
+
 }
